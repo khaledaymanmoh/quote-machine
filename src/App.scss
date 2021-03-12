@@ -1,0 +1,76 @@
+// https://colorhunt.co/palette/265073
+// https://colorhunt.co/palette/257686
+$base-color: #025955;
+$hover-color: #00917c;
+$card-background: #fde8cd;
+$shadow-color: #393232;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: $base-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #quote-box {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $card-background;
+    padding: 2rem;
+    border-radius: 1rem;
+    min-height: 60vh;
+    width: 50vw;
+    min-width: 500px;
+    box-shadow: 0px 0px 10px 1px $shadow-color;
+    @media screen and (max-width: 786px) {
+      min-width: 90vw;
+    }
+    .quote-container {
+      transition: 0.5s all ease-out;
+      flex: 1;
+      color: $base-color;
+      #text {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        #quote-icon {
+          margin-right: 10px;
+        }
+      }
+      #author {
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+    }
+    #new-quote {
+      font-family: 'Josefin Sans', sans-serif;
+      margin: 0.5rem;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      padding: 0.5rem;
+      background: $base-color;
+      color: $card-background;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+    a {
+      font-size: 2.5rem;
+      text-decoration: none;
+      color: $base-color;
+      transition: all 0.3s ease-out;
+      &:hover {
+        color: $hover-color;
+      }
+    }
+  }
+}
