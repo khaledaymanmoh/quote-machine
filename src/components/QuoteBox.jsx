@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getQuote } from '../util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-// import { motion } from 'framer-motion';
+import { FacebookShareButton } from 'react-share';
 
 const QuoteBox = () => {
   //states
@@ -46,14 +46,23 @@ const QuoteBox = () => {
           <button id='new-quote' onClick={updateState}>
             {isLoading ? 'On the way..' : 'New Quote'}
           </button>
-          <a
-            href={tweetUrl()}
-            rel='noreferrer'
-            target='_blank'
-            id='tweet-quote'
-          >
-            <FontAwesomeIcon icon={faTwitterSquare} />
-          </a>
+          <div className='links-container'>
+            <a
+              href={tweetUrl()}
+              rel='noreferrer'
+              target='_blank'
+              id='tweet-quote'
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <FacebookShareButton
+              url='http://randomquo.netlify.app'
+              quote={`"${currentQuote.quote}"\n-${currentQuote.author}`}
+              hashtag='#QuoteMachine'
+            >
+              <FontAwesomeIcon id='facebook-share' icon={faFacebook} />
+            </FacebookShareButton>
+          </div>
         </>
       )}
     </div>
