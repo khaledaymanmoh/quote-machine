@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
+
+// API call function
 import { getQuote } from '../util';
+
+// Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+
+// Facebook share trigger
 import { FacebookShareButton } from 'react-share';
 
 const QuoteBox = () => {
@@ -21,10 +27,12 @@ const QuoteBox = () => {
     setOpacity(1);
   };
 
+  // Twitter intent URL
   const tweetUrl = () => {
     return `https://twitter.com/intent/tweet?text="${currentQuote.quote}"%0D%0A-${currentQuote.author}%0D%0A&hashtags=QuoteMachine`;
   };
 
+  // useEffect
   useEffect(() => {
     updateState();
   }, []);
