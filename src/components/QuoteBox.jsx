@@ -22,7 +22,7 @@ const QuoteBox = () => {
   };
 
   const tweetUrl = () => {
-    return `https://twitter.com/intent/tweet?text="${currentQuote.quote}"%0D%0A-${currentQuote.author}%0D%0A&hashtags=QuoteMachine,KhaledAyman`;
+    return `https://twitter.com/intent/tweet?text="${currentQuote.quote}"%0D%0A-${currentQuote.author}%0D%0A&hashtags=QuoteMachine`;
   };
 
   useEffect(() => {
