@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 // API call function
 import { getQuote } from '../util';
@@ -17,14 +17,25 @@ const QuoteBox = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [opacity, setOpacity] = useState(0);
 
+  const buttonRef = useRef();
+
   // Updating current quote
   const updateState = async () => {
     setOpacity(0);
     setIsLoading(true);
     const quote = await getQuote();
-    setCurrentQuote(quote);
-    setIsLoading(false);
-    setOpacity(1);
+    setTimeout(() => {
+      setCurrentQuote(quote);
+      setIsLoading(false);
+      setOpacity(1);
+    }, 500);
+  };
+
+  // AutoClick
+  const autoClick = () => {
+    setInterval(() => {
+      buttonRef.current.click();
+    }, 15000);
   };
 
   // Twitter intent URL
@@ -35,6 +46,7 @@ const QuoteBox = () => {
   // useEffect
   useEffect(() => {
     updateState();
+    autoClick();
   }, []);
 
   return (
@@ -51,7 +63,12 @@ const QuoteBox = () => {
             <p id='author'>-{currentQuote.author}</p>
           </div>
 
-          <button id='new-quote' onClick={updateState}>
+          <button
+            id='new-quote'
+            ref={buttonRef}
+            disabled={isLoading}
+            onClick={updateState}
+          >
             {isLoading ? 'On the way..' : 'New Quote'}
           </button>
           <div className='links-container'>
