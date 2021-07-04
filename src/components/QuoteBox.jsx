@@ -31,12 +31,12 @@ const QuoteBox = () => {
     }, 500);
   };
 
-  // AutoClick
-  const autoClick = () => {
-    setInterval(() => {
-      buttonRef.current.click();
-    }, 15000);
-  };
+  // // AutoClick
+  // const autoClick = () => {
+  //   setInterval(() => {
+  //     buttonRef.current.click();
+  //   }, 15000);
+  // };
 
   // Twitter intent URL
   const tweetUrl = () => {
